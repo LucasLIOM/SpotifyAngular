@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Routes} from '@angular/router';
+import { RouterModule, Routes} from '@angular/router';
+import { PageNotFoundComponent } from '../core/components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -13,12 +13,14 @@ const routes: Routes = [
     loadChildren: async () =>
       import('./search/search.module').then((m) => m.SearchModule),
   },
+  {
+    path: '**',
+    component: PageNotFoundComponent,
+  },
 ]
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
 export class FeaturesRouting { }

@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { SearchModule } from './features/search/search.module';
+import { ListModule } from './features/search/listdown/list.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import { CoreModule } from './core/core.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CoreModule
+    CoreModule,
+    SearchModule,
+    ListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
