@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ComponentsComponent } from './components/components.component';
+import { ComponentsComponent } from './components/page-not-found/page-not-found.component';
 
 
 
