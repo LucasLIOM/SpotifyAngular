@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://api.spotify.com/v1'
+  baseUrl: 'https://api.deezer.com/search?q='
 };
 
 /*

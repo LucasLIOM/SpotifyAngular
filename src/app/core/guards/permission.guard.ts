@@ -8,8 +8,13 @@ import { Observable } from 'rxjs';
 export class GuardsGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+    state: RouterStateSnapshot
+  ):
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree>
+    | boolean
+    | UrlTree {
+    const hasPermission = true;
+    return hasPermission;
   }
-  
 }
