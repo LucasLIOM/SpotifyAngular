@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { List } from './core/model/list'
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'spotify-angular-master';
+
+
 }
