@@ -12,11 +12,19 @@ export class SpotifyService {
 
     const authEndPoint = `${SpotifyConfiguration.authEndPoint}?`;
     const clientId = `client_id=${SpotifyConfiguration.clientId}&`; // ID do Cliente
-    const redirectUrl = `${SpotifyConfiguration.redirectUrl}&`; // Redireciona para a Autorização do Spotify (conexão com a conta do usuário)
+    const redirectUrl = `redirect_uri=${SpotifyConfiguration.redirectUrl}&`; // Redireciona para a Autorização do Spotify (conexão com a conta do usuário)
     const scopes = `scopes=${SpotifyConfiguration.scopes.join('20%')}&`; // Regrinhas dos eventos
     const responseType = `response_type=token&show_dialog=true`; // Retorna o evento da autorização concluida
     return authEndPoint + clientId + redirectUrl + scopes + responseType;
 
     // Base: Cristian William
+  }
+
+  tokenUrlCallBack(){
+    console.log(window.location.hash)
+    if(!window.location.hash)
+    return '';
+
+    const params = window.location.href
   }
 }
