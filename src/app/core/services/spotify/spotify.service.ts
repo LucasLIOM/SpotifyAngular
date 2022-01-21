@@ -15,15 +15,18 @@ export class SpotifyService {
 
   urlLogin(){ // Obter o login do usuário e gerar o token para utilização no Spotify Clone (string)
 
-    const authEndPoint = `${SpotifyConfiguration.authEndPoint}?`;
+    const authEndPoint = `${SpotifyConfiguration.authEndPoint}?`; // URL da Autorização
     const clientId = `client_id=${SpotifyConfiguration.clientId}&`; // ID do Cliente
-    const redirectUrl = `redirect_uri=${SpotifyConfiguration.redirectUrl}&`; // Redireciona para a Autorização do Spotify (conexão com a conta do usuário)
+    const redirectUrl = `redirect_uri=${SpotifyConfiguration.redirectUrl}&`; // Pega a URL do LocalHost
     const scopes = `scopes=${SpotifyConfiguration.scopes.join('20%')}&`; // Regrinhas dos eventos
     const responseType = `response_type=token&show_dialog=true`; // Retorna o evento da autorização concluida
     return authEndPoint + clientId + redirectUrl + scopes + responseType;
 
     // Base: Cristian William
   }
+
+  // * * * Service em construção * * * \\
+  // Feito pelo Lucas daqui...
 
   tokenUrlCallBack(){
     console.log(window.location.hash)
@@ -37,6 +40,24 @@ export class SpotifyService {
   requestAcessToken(token: string){
     this.spotifyApi.setAccessToken(token);
     localStorage.setItem('token', token);
-    this.spotifyApi.skipToNext();
     }
+
+    async playMusic(){ // Play na música
+      await this.spotifyApi.skipToPrevious();
+    }
+
+    async pauseMusic() { // Pausa a música
+      await this.spotifyApi.pause();
+    }
+
+    async backMusic(){ // Volta para a música anterior
+      await this.spotifyApi.skipToPrevious();
+    }
+
+    async nextMusic() { // Avança para a próxima musica
+      await this.spotifyApi.skipToNext();
+    }
+
+    // Até aqui...
+
 }
