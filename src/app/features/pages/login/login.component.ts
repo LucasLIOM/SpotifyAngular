@@ -16,16 +16,15 @@ export class LoginComponent implements OnInit {
 
   checkTokenUrlCallBack(){
     const token = this.spotifyService.tokenUrlCallBack();
-    //console.log(token);
     if(!!token){this.spotifyService.requestAcessToken(token);}
+    console.log(token);
   }
 
-  openPageLogin(){// Abre a página de autorização (Oficial do Spotify)
+  openPageLogin(){ // Abre a página de autorização (Oficial do Spotify)
 
     console.log(this.spotifyService.urlLogin());
     window.location.href = this.spotifyService.urlLogin();
 
     this.spotifyService.urlLogin(); // Resgata o token de autorização do spotify
   }
-
 }
